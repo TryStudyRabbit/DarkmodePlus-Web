@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for DarkMode+ - Learn how we protect your privacy and handle your data.">
+    <title>Privacy Policy | DarkMode+</title>
+    <link rel="icon" href="icons/icon16.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3a4d8f;
+            --primary-dark: #2a3b7d;
+            --accent-color: #6b99cc;
+            --accent-light: #8bb5e0;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #121212;
+            --light-text: #f0f0f0;
+            --mid-gray: #444;
+            --light-gray: #f5f5f5;
+            --section-padding: 5rem 2rem;
+            --card-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 2.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        nav a:hover {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Legal content */
+        .legal-content {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .toc {
+            background-color: var(--light-gray);
+            border-radius: var(--card-radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .toc h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .toc-list a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .legal-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .legal-section:last-child {
+            border-bottom: none;
+        }
+        
+        .legal-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            padding-top: 1rem;
+        }
+        
+        .legal-section h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: #444;
+        }
+        
+        .legal-section p, 
+        .legal-section ul, 
+        .legal-section ol {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .legal-section ul, 
+        .legal-section ol {
+            margin-left: 2rem;
+        }
+        
+        .legal-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .legal-section strong {
+            color: #333;
+        }
+        
+        .legal-section .highlight {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .legal-date {
+            margin-bottom: 3rem;
+            color: #777;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 2.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .footer-logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+        
+        .subfooter {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .subfooter-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .subfooter-links a {
+            color: var(--light-text);
+            opacity: 0.8;
+        }
+        
+        .subfooter-links a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 1.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+                margin-left: 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .legal-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .legal-section h3 {
+                font-size: 1.3rem;
+            }
+            
+            .subfooter {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .subfooter-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="icons/icon48.svg" alt="DarkMode+ Logo">
+                    <span>DarkMode+</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#themes">Themes</a></li>
+                        <li><a href="index.html#theme-suggestions">Theme Suggestions</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#download" class="btn">Download</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p>Learn how we protect your data and respect your privacy</p>
+            </div>
+        </section>
+        
+        <section class="legal-content">
+            <div class="legal-container">
+                <p class="legal-date">Last Updated: April 1, 2025</p>
+                
+                <div class="toc">
+                    <h2>Table of Contents</h2>
+                    <ul class="toc-list">
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#information-collection">Information We Collect</a></li>
+                        <li><a href="#information-usage">How We Use Your Information</a></li>
+                        <li><a href="#data-storage">Data Storage and Security</a></li>
+                        <li><a href="#third-parties">Third-Party Services</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                        <li><a href="#childrens-privacy">Children's Privacy</a></li>
+                        <li><a href="#user-rights">Your Rights and Choices</a></li>
+                        <li><a href="#changes">Changes to This Privacy Policy</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div id="introduction" class="legal-section">
+                    <h2>1. Introduction</h2>
+                    <p>Welcome to DarkMode+ ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains our practices regarding the collection, use, and disclosure of information when you use our Chrome extension.</p>
+                    
+                    <p>We designed DarkMode+ with privacy in mind. Our extension operates entirely on your device, and we've minimized data collection to only what's necessary for the extension to function properly. We believe in transparency and giving users control over their data.</p>
+                    
+                    <p>By installing and using DarkMode+, you agree to the practices described in this Privacy Policy. If you do not agree with our policies and practices, please do not use our extension.</p>
+                </div>
+                
+                <div id="information-collection" class="legal-section">
+                    <h2>2. Information We Collect</h2>
+                    
+                    <p>DarkMode+ is designed to collect minimal information. Here's what we do and don't collect:</p>
+                    
+                    <h3>2.1 Information Collected Automatically</h3>
+                    <p>The DarkMode+ extension does not automatically collect any personally identifiable information. We do not track your browsing history, capture screenshots, or monitor the content of websites you visit.</p>
+                    
+                    <p>The extension may collect limited technical information such as:</p>
+                    <ul>
+                        <li>Extension error logs (when necessary for troubleshooting)</li>
+                        <li>Basic usage statistics (e.g., which features are most commonly used)</li>
+                        <li>Extension version and browser information for compatibility purposes</li>
+                    </ul>
+                    
+                    <p>This information is anonymized and cannot be used to identify you personally.</p>
+                    
+                    <h3>2.2 Settings and Preferences</h3>
+                    <p>DarkMode+ stores your preferences and settings (such as your theme selection, custom color choices, and excluded websites) locally on your device using Chrome's storage API. These settings may be synchronized across your devices if you have enabled Chrome Sync.</p>
+                    
+                    <p>We do not have direct access to these settings unless you explicitly share them with us (for example, when requesting technical support).</p>
+                    
+                    <h3>2.3 Information You Provide</h3>
+                    <p>We may collect information that you voluntarily provide to us, such as:</p>
+                    <ul>
+                        <li>Contact information when you reach out to us for support (e.g., email address)</li>
+                        <li>Feedback or survey responses you choose to submit</li>
+                        <li>Information shared when reporting bugs or suggesting features</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <strong>Our Commitment to Minimal Data Collection:</strong>
+                        <p>DarkMode+ operates primarily on your local device. We've designed it to function without requiring a connection to external servers for its core functionality. This means that most of your interactions with the extension remain private on your device.</p>
+                    </div>
+                </div>
+                
+                <div id="information-usage" class="legal-section">
+                    <h2>3. How We Use Your Information</h2>
+                    
+                    <p>We use the limited information we collect for the following purposes:</p>
+                    
+                    <h3>3.1 To Provide and Improve the Extension</h3>
+                    <ul>
+                        <li>Delivering the core functionality of DarkMode+</li>
+                        <li>Developing new features and improvements</li>
+                        <li>Fixing bugs and addressing technical issues</li>
+                        <li>Understanding how users interact with different features</li>
+                    </ul>
+                    
+                    <h3>3.2 To Communicate With You</h3>
+                    <ul>
+                        <li>Responding to your inquiries and support requests</li>
+                        <li>Sending critical updates about the extension (e.g., major changes or security updates)</li>
+                        <li>Processing feedback and suggestions you provide</li>
+                    </ul>
+                    
+                    <h3>3.3 Legal and Safety Purposes</h3>
+                    <ul>
+                        <li>Protecting our rights, property, or safety</li>
+                        <li>Complying with applicable laws, regulations, or legal processes</li>
+                        <li>Enforcing our terms of service</li>
+                        <li>Addressing violations of our policies</li>
+                    </ul>
+                    
+                    <p>We will never use your information for the following purposes without your explicit consent:</p>
+                    <ul>
+                        <li>Selling or renting your data to third parties</li>
+                        <li>Targeted advertising or marketing</li>
+                        <li>Profiling or automated decision-making that may significantly affect you</li>
+                    </ul>
+                </div>
+                
+                <div id="data-storage" class="legal-section">
+                    <h2>4. Data Storage and Security</h2>
+                    
+                    <h3>4.1 Local Storage</h3>
+                    <p>Most of the data DarkMode+ uses (including your settings and preferences) is stored locally on your device using secure browser storage. This data does not leave your device unless you have enabled Chrome Sync, in which case Chrome will sync this data across your devices according to Google's privacy policies.</p>
+                    
+                    <h3>4.2 Security Measures</h3>
+                    <p>We implement appropriate technical and organizational measures to protect any data we do collect. However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+                    
+                    <h3>4.3 Data Retention</h3>
+                    <p>We retain information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. For example, we may retain contact information provided for support purposes for as long as needed to provide assistance and a reasonable period afterward.</p>
+                    
+                    <p>You can remove locally stored data at any time by uninstalling the extension or clearing your browser data.</p>
+                </div>
+                
+                <div id="third-parties" class="legal-section">
+                    <h2>5. Third-Party Services</h2>
+                    
+                    <h3>5.1 Chrome Web Store and Google Services</h3>
+                    <p>DarkMode+ is distributed through the Chrome Web Store. Google may collect information about the installation, usage, and uninstallation of our extension according to their privacy policy. We encourage you to review <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for more information.</p>
+                    
+                    <h3>5.2 Analytics</h3>
+                    <p>We may use limited analytics tools to help us understand how our extension is used. These tools collect anonymized data about feature usage and performance. No personally identifiable information is shared with these analytics providers.</p>
+                    
+                    <h3>5.3 External Links</h3>
+                    <p>Our extension and website may contain links to external sites that are not operated by us. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites or services. We strongly encourage you to review the privacy policy of every site you visit.</p>
+                </div>
+                
+                <div id="cookies" class="legal-section">
+                    <h2>6. Cookie Policy</h2>
+                    
+                    <h3>6.1 What Are Cookies</h3>
+                    <p>Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners.</p>
+                    
+                    <h3>6.2 How We Use Cookies</h3>
+                    <p>The DarkMode+ extension itself does not use cookies for its core functionality. However, our website (darkmodeplus.com) may use cookies for the following purposes:</p>
+                    <ul>
+                        <li><strong>Essential cookies:</strong> These are necessary for the website to function properly.</li>
+                        <li><strong>Preference cookies:</strong> These remember your settings and preferences.</li>
+                        <li><strong>Analytics cookies:</strong> These help us understand how visitors interact with our website.</li>
+                    </ul>
+                    
+                    <h3>6.3 Managing Cookies</h3>
+                    <p>Most web browsers allow you to control cookies through their settings preferences. However, limiting cookies may impact the functionality of our website. For more information about cookies and how to manage them, visit <a href="https://www.allaboutcookies.org/" target="_blank">allaboutcookies.org</a>.</p>
+                </div>
+                
+                <div id="childrens-privacy" class="legal-section">
+                    <h2>7. Children's Privacy</h2>
+                    
+                    <p>Our extension and services are not directed to individuals under the age of 13 (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us so that we can take appropriate action.</p>
+                </div>
+                
+                <div id="user-rights" class="legal-section">
+                    <h2>8. Your Rights and Choices</h2>
+                    
+                    <h3>8.1 Access and Control of Your Information</h3>
+                    <p>You have the right to:</p>
+                    <ul>
+                        <li>Access the personal information we have about you</li>
+                        <li>Correct inaccurate or incomplete information</li>
+                        <li>Request deletion of your personal information</li>
+                        <li>Object to or restrict our processing of your information</li>
+                        <li>Data portability (where applicable)</li>
+                    </ul>
+                    
+                    <h3>8.2 How to Exercise Your Rights</h3>
+                    <p>You can exercise many of these rights directly through the extension by:</p>
+                    <ul>
+                        <li>Uninstalling the extension to remove locally stored data</li>
+                        <li>Adjusting your settings in the extension options</li>
+                        <li>Using your browser's features to clear stored data</li>
+                    </ul>
+                    
+                    <p>For other requests or to access information we may hold about you, please contact us at privacy@darkmodeplus.com. We will respond to your request within a reasonable timeframe.</p>
+                    
+                    <h3>8.3 Do Not Track Signals</h3>
+                    <p>We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track browser mechanism is in place.</p>
+                </div>
+                
+                <div id="changes" class="legal-section">
+                    <h2>9. Changes to This Privacy Policy</h2>
+                    
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top.</p>
+                    
+                    <p>For significant changes that materially alter your privacy rights, we will provide additional notice, such as a prominent notice within the extension or via email (if we have your contact information).</p>
+                    
+                    <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                </div>
+                
+                <div id="contact" class="legal-section">
+                    <h2>10. Contact Us</h2>
+                    
+                    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:</p>
+                    
+                    <p>
+                        <strong>Email:</strong> privacy@darkmodeplus.com<br>
+                        <strong>Website:</strong> <a href="https://darkmodeplus.com/contact" target="_blank">https://darkmodeplus.com/contact</a>
+                    </p>
+                    
+                    <p>We will make every effort to respond to your inquiry promptly and address any concerns you may have.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="icons/icon48.svg" alt="DarkMode+ Logo">
+                        <span>DarkMode+</span>
+                    </div>
+                    <p class="footer-description">A customizable dark mode Chrome extension that works on any website. Reduce eye strain and enjoy a better browsing experience with multiple themes and personalized settings.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0014.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"/></svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.599-.1-.899a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"/></svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z"/><circle cx="16.806" cy="7.207" r="1.078"/><path d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Features</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Universal Dark Mode</a></li>
+                        <li><a href="index.html#themes">Multiple Themes</a></li>
+                        <li><a href="index.html#features">Site Exclusions</a></li>
+                        <li><a href="index.html#theme-suggestions">Color Customization</a></li>
+                        <li><a href="index.html#benefits">Eye Strain Reduction</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html#contact">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="https://chrome.google.com/webstore" target="_blank">Chrome Web Store</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="subfooter">
+                <p>&copy; 2025 DarkMode+. All rights reserved.</p>
+                <div class="subfooter-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </div>
+    
+    <script>
+        // Back to top button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

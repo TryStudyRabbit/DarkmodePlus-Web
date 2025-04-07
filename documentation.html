@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentation for DarkMode+ - Learn how to use all features of the customizable dark mode Chrome extension.">
+    <title>Documentation | DarkMode+</title>
+    <link rel="icon" href="icons/icon16.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3a4d8f;
+            --primary-dark: #2a3b7d;
+            --accent-color: #6b99cc;
+            --accent-light: #8bb5e0;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #121212;
+            --light-text: #f0f0f0;
+            --mid-gray: #444;
+            --light-gray: #f5f5f5;
+            --section-padding: 5rem 2rem;
+            --card-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 2.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        nav a:hover {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Docs section */
+        .docs-wrapper {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+        }
+        
+        .docs-sidebar {
+            position: sticky;
+            top: 2rem;
+            background-color: #f8f8f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            height: fit-content;
+        }
+        
+        .docs-sidebar h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .docs-nav {
+            list-style: none;
+        }
+        
+        .docs-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .docs-nav a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .docs-nav a:hover, .docs-nav a.active {
+            background-color: rgba(106, 153, 204, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .docs-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .docs-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .docs-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .docs-section h3 {
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+            color: #444;
+        }
+        
+        .docs-section p, .docs-section ul, .docs-section ol {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .docs-section code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+        
+        .docs-section pre {
+            background-color: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .docs-section pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #333;
+            font-size: 0.9rem;
+        }
+        
+        .docs-section img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #eee;
+        }
+        
+        .docs-section blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin-left: 0;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .docs-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        
+        .docs-section th, .docs-section td {
+            border: 1px solid #eee;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .docs-section th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+        }
+        
+        .docs-section .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .docs-section .note-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .keyboard-shortcut {
+            display: inline-block;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.2rem 0.5rem;
+            margin: 0 0.2rem;
+            font-family: monospace;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        
+        .feature-card h4 {
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+        
+        .docs-section ol li, .docs-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 2.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .footer-logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+        
+        .subfooter {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .subfooter-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .subfooter-links a {
+            color: var(--light-text);
+            opacity: 0.8;
+        }
+        
+        .subfooter-links a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .docs-sidebar {
+                position: relative;
+                top: 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 1.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+                margin-left: 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subfooter {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .subfooter-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="icons/icon48.svg" alt="DarkMode+ Logo">
+                    <span>DarkMode+</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#themes">Themes</a></li>
+                        <li><a href="index.html#theme-suggestions">Theme Suggestions</a></li>
+                        <li><a href="documentation.html" class="active">Documentation</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#download" class="btn">Download</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Documentation</h1>
+                <p>Everything you need to know about using DarkMode+ for Chrome</p>
+            </div>
+        </section>
+        
+        <section class="docs-wrapper">
+            <div class="container">
+                <div class="docs-layout">
+                    <div class="docs-sidebar">
+                        <h3>Contents</h3>
+                        <ul class="docs-nav">
+                            <li><a href="#getting-started" class="active">Getting Started</a></li>
+                            <li><a href="#installation">Installation</a></li>
+                            <li><a href="#basic-usage">Basic Usage</a></li>
+                            <li><a href="#themes">Theme Options</a></li>
+                            <li><a href="#custom-themes">Custom Themes</a></li>
+                            <li><a href="#site-exclusions">Site Exclusions</a></li>
+                            <li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+                            <li><a href="#settings-sync">Settings Sync</a></li>
+                            <li><a href="#troubleshooting">Troubleshooting</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="docs-container">
+                        <div id="getting-started" class="docs-section">
+                            <h2>Getting Started with DarkMode+</h2>
+                            <p>DarkMode+ is a powerful Chrome extension that transforms any website with customizable dark mode styling. This guide will help you get started and make the most of all its features.</p>
+                            
+                            <div class="note">
+                                <span class="note-title">Note</span>
+                                <p>DarkMode+ works with Chrome version 88 and above. For optimal performance, we recommend keeping your browser updated to the latest version.</p>
+                            </div>
+                            
+                            <p>Key features of DarkMode+ include:</p>
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                    <h4>Universal Dark Mode</h4>
+                                    <p>Works on virtually any website to create a comfortable dark appearance.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <h4>Multiple Themes</h4>
+                                    <p>Choose from Default, Sepia, Midnight, or custom color schemes.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <h4>Site Exclusions</h4>
+                                    <p>Exclude specific websites from dark mode application.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <h4>Color Customization</h4>
+                                    <p>Fine-tune background, text, links, and accent colors.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="installation" class="docs-section">
+                            <h2>Installation</h2>
+                            <p>Installing DarkMode+ is quick and easy:</p>
+                            <ol>
+                                <li>Visit the <a href="https://chrome.google.com/webstore" target="_blank">Chrome Web Store</a></li>
+                                <li>Search for "DarkMode+" or use our direct link from the homepage</li>
+                                <li>Click the "Add to Chrome" button</li>
+                                <li>Confirm the installation when prompted</li>
+                                <li>The DarkMode+ icon will appear in your browser toolbar</li>
+                            </ol>
+                            
+                            <div class="note">
+                                <span class="note-title">Tip</span>
+                                <p>You can pin DarkMode+ to your toolbar for easier access by right-clicking the icon and selecting "Pin".</p>
+                            </div>
+                            
+                            <p>After installation, the extension will be active with default settings. You can immediately start using it or customize the settings to your preferences.</p>
+                        </div>
+                        
+                        <div id="basic-usage" class="docs-section">
+                            <h2>Basic Usage</h2>
+                            <p>Using DarkMode+ is straightforward:</p>
+                            
+                            <h3>Enabling/Disabling Dark Mode</h3>
+                            <p>Click the DarkMode+ icon in your browser toolbar to toggle dark mode on or off for the current website. When enabled, a checkmark appears on the icon.</p>
+                            
+                            <h3>Accessing Options</h3>
+                            <p>To access the full settings panel:</p>
+                            <ol>
+                                <li>Click the DarkMode+ icon in your browser toolbar</li>
+                                <li>Click the gear icon ⚙️ in the popup menu</li>
+                                <li>Alternatively, right-click the extension icon and select "Options"</li>
+                            </ol>
+                            
+                            <h3>Quick Toggle</h3>
+                            <p>You can quickly toggle dark mode on/off by using the keyboard shortcut <span class="keyboard-shortcut">Alt</span> + <span class="keyboard-shortcut">Shift</span> + <span class="keyboard-shortcut">D</span> (customizable in settings).</p>
+                        </div>
+                        
+                        <div id="themes" class="docs-section">
+                            <h2>Theme Options</h2>
+                            <p>DarkMode+ offers multiple theme options to suit your preferences:</p>
+                            
+                            <h3>Default Theme</h3>
+                            <p>A classic dark mode with intelligent color inversion that preserves images and media. Features dark gray backgrounds and light text for optimal readability.</p>
+                            
+                            <h3>Sepia Theme</h3>
+                            <p>A warm, amber-colored dark mode that further reduces blue light emission. This theme gives websites a pleasant, vintage book appearance that's particularly easy on the eyes in low-light environments.</p>
+                            
+                            <h3>Midnight Theme</h3>
+                            <p>A sleek, modern dark theme with deep blue-black backgrounds and cool-toned accents. Perfect for night-time browsing with minimal eye strain.</p>
+                            
+                            <h3>Custom Theme</h3>
+                            <p>Create your own perfect dark mode by selecting custom colors for backgrounds, text, links, and accents. See the "Custom Themes" section for detailed instructions.</p>
+                            
+                            <h3>Selecting a Theme</h3>
+                            <p>To change your theme:</p>
+                            <ol>
+                                <li>Click the DarkMode+ icon in your browser toolbar</li>
+                                <li>Select your preferred theme from the dropdown menu</li>
+                                <li>The change will apply immediately</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="custom-themes" class="docs-section">
+                            <h2>Custom Themes</h2>
+                            <p>One of the most powerful features of DarkMode+ is the ability to create your own custom theme with personalized colors.</p>
+                            
+                            <h3>Creating a Custom Theme</h3>
+                            <ol>
+                                <li>Click the DarkMode+ icon in your toolbar</li>
+                                <li>Select "Custom" from the theme dropdown</li>
+                                <li>Click "Customize Colors" to open the color selection panel</li>
+                                <li>Adjust the following colors using the color pickers or by entering hex values:
+                                    <ul>
+                                        <li><strong>Background Color:</strong> The main dark background color for websites</li>
+                                        <li><strong>Text Color:</strong> The primary color for text content</li>
+                                        <li><strong>Links Color:</strong> The color used for hyperlinks</li>
+                                        <li><strong>Accent Color:</strong> The color used for UI elements like buttons and highlights</li>
+                                    </ul>
+                                </li>
+                                <li>Preview your theme in real-time as you make adjustments</li>
+                                <li>Click "Save" to apply your custom theme</li>
+                            </ol>
+                            
+                            <div class="note">
+                                <span class="note-title">Recommended</span>
+                                <p>Visit our <a href="index.html#theme-suggestions">Theme Suggestions</a> page for pre-selected color palettes that work well together and provide optimal readability.</p>
+                            </div>
+                            
+                            <h3>Tips for Creating Effective Custom Themes</h3>
+                            <ul>
+                                <li>Maintain sufficient contrast between background and text colors for readability</li>
+                                <li>Choose link colors that stand out from your regular text</li>
+                                <li>Consider using slightly muted colors to reduce eye strain</li>
+                                <li>Test your theme on various websites to ensure it works well across different designs</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="site-exclusions" class="docs-section">
+                            <h2>Site Exclusions</h2>
+                            <p>There may be websites where you prefer to keep the original light mode design. DarkMode+ makes it easy to exclude specific sites from dark mode application.</p>
+                            
+                            <h3>Adding a Site to Exclusions</h3>
+                            <p>You can add a site to your exclusion list in two ways:</p>
+                            
+                            <h4>Method 1: From the Popup Menu</h4>
+                            <ol>
+                                <li>Navigate to the website you want to exclude</li>
+                                <li>Click the DarkMode+ icon in your browser toolbar</li>
+                                <li>Click the "Add to Exclusion List" button</li>
+                                <li>The website will immediately return to its original light mode</li>
+                            </ol>
+                            
+                            <h4>Method 2: From the Options Page</h4>
+                            <ol>
+                                <li>Access the DarkMode+ options page</li>
+                                <li>Scroll down to the "Site Exclusions" section</li>
+                                <li>Enter the domain name in the text field (e.g., "example.com")</li>
+                                <li>Click "Add" to add it to your exclusion list</li>
+                            </ol>
+                            
+                            <h3>Managing Exclusions</h3>
+                            <p>To view and manage your excluded sites:</p>
+                            <ol>
+                                <li>Access the DarkMode+ options page</li>
+                                <li>Scroll to the "Site Exclusions" section</li>
+                                <li>You'll see a list of all excluded domains</li>
+                                <li>To remove a site from the list, click the "X" button next to it</li>
+                            </ol>
+                            
+                            <div class="note">
+                                <span class="note-title">Note</span>
+                                <p>Site exclusions are based on domain names. For example, excluding "example.com" will also exclude all subdomains like "blog.example.com".</p>
+                            </div>
+                        </div>
+                        
+                        <div id="keyboard-shortcuts" class="docs-section">
+                            <h2>Keyboard Shortcuts</h2>
+                            <p>DarkMode+ supports keyboard shortcuts for faster access to common functions:</p>
+                            
+                            <table>
+                                <tr>
+                                    <th>Function</th>
+                                    <th>Default Shortcut</th>
+                                </tr>
+                                <tr>
+                                    <td>Toggle Dark Mode On/Off</td>
+                                    <td><span class="keyboard-shortcut">Alt</span> + <span class="keyboard-shortcut">Shift</span> + <span class="keyboard-shortcut">D</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Open Options Page</td>
+                                    <td><span class="keyboard-shortcut">Alt</span> + <span class="keyboard-shortcut">Shift</span> + <span class="keyboard-shortcut">O</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Cycle Through Themes</td>
+                                    <td><span class="keyboard-shortcut">Alt</span> + <span class="keyboard-shortcut">Shift</span> + <span class="keyboard-shortcut">T</span></td>
+                                </tr>
+                            </table>
+                            
+                            <h3>Customizing Keyboard Shortcuts</h3>
+                            <p>You can customize these keyboard shortcuts to your preference:</p>
+                            <ol>
+                                <li>Navigate to <code>chrome://extensions/shortcuts</code> in your browser</li>
+                                <li>Find DarkMode+ in the list</li>
+                                <li>Click the pencil icon next to the shortcut you want to change</li>
+                                <li>Press your desired key combination</li>
+                                <li>Click outside the input box to save</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="settings-sync" class="docs-section">
+                            <h2>Settings Sync</h2>
+                            <p>DarkMode+ automatically syncs your settings across all your devices where you use Chrome with the same Google account.</p>
+                            
+                            <h3>What Gets Synced</h3>
+                            <ul>
+                                <li>Theme preferences (Default, Sepia, Midnight, or Custom)</li>
+                                <li>Custom theme color settings</li>
+                                <li>Site exclusion list</li>
+                                <li>General extension settings</li>
+                            </ul>
+                            
+                            <h3>Requirements for Sync</h3>
+                            <p>To enable settings sync:</p>
+                            <ol>
+                                <li>Sign in to Chrome with your Google account on all your devices</li>
+                                <li>Ensure Chrome Sync is enabled in Chrome settings</li>
+                                <li>Make sure "Extensions" or "Extensions Data" is included in your sync settings</li>
+                            </ol>
+                            
+                            <div class="note">
+                                <span class="note-title">Note</span>
+                                <p>There may be a brief delay before changes sync across all your devices. If you don't see your settings updated immediately, wait a few minutes or manually refresh.</p>
+                            </div>
+                        </div>
+                        
+                        <div id="troubleshooting" class="docs-section">
+                            <h2>Troubleshooting</h2>
+                            <p>If you encounter any issues with DarkMode+, here are some common solutions:</p>
+                            
+                            <h3>Dark Mode Not Working on Specific Sites</h3>
+                            <ul>
+                                <li>Check if the site is in your exclusion list</li>
+                                <li>Some websites with complex designs or those using special technologies may not be fully compatible</li>
+                                <li>Try using a different theme option as some themes work better on certain sites</li>
+                                <li>Check if the website has its own dark mode option that might be conflicting with DarkMode+</li>
+                            </ul>
+                            
+                            <h3>Images or Videos Look Inverted</h3>
+                            <ul>
+                                <li>DarkMode+ tries to preserve media elements, but some may be affected</li>
+                                <li>Try toggling dark mode off temporarily when viewing specific media</li>
+                                <li>Right-click on the inverted image and select "Ignore in Dark Mode" (Note: this setting doesn't persist across sessions)</li>
+                            </ul>
+                            
+                            <h3>Performance Issues</h3>
+                            <ul>
+                                <li>On very complex websites, DarkMode+ may cause slight performance delays</li>
+                                <li>Consider adding these sites to your exclusion list</li>
+                                <li>Ensure your Chrome is updated to the latest version</li>
+                                <li>Disable other extensions that might be conflicting</li>
+                            </ul>
+                            
+                            <h3>Settings Not Syncing</h3>
+                            <ul>
+                                <li>Verify you're signed in to Chrome with the same Google account</li>
+                                <li>Check that Chrome Sync is enabled and includes extension data</li>
+                                <li>Force a sync by clicking the sync icon in Chrome settings</li>
+                            </ul>
+                            
+                            <h3>Reinstalling the Extension</h3>
+                            <p>If you continue to experience issues, try reinstalling DarkMode+:</p>
+                            <ol>
+                                <li>Right-click the DarkMode+ icon in your toolbar</li>
+                                <li>Select "Remove from Chrome..."</li>
+                                <li>Confirm removal</li>
+                                <li>Reinstall from the Chrome Web Store</li>
+                            </ol>
+                            <p>Note that reinstalling will reset your settings unless they were synced to your Google account.</p>
+                        </div>
+                        
+                        <div id="faq" class="docs-section">
+                            <h2>Frequently Asked Questions</h2>
+                            
+                            <h3>Will DarkMode+ work on all websites?</h3>
+                            <p>DarkMode+ is designed to work on virtually any website. Our smart algorithms apply dark mode styling while preserving images, videos, and other media elements. If you encounter a website where the extension doesn't work optimally, you can easily add it to your exclusion list or try a different theme.</p>
+                            
+                            <h3>How do I customize the colors in my dark mode?</h3>
+                            <p>To customize colors, select "Custom" in the theme dropdown menu in the extension popup. This will open a color customization interface where you can adjust background, text, link, and accent colors. You can use the color pickers or enter specific hex values for precise control.</p>
+                            
+                            <h3>Will using dark mode save battery on my device?</h3>
+                            <p>If your device has an OLED or AMOLED display (common in many smartphones and high-end laptops), using dark mode can significantly reduce power consumption since these displays don't use power to show black pixels. For LCD displays, the power savings are minimal, but you'll still benefit from reduced eye strain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="icons/icon48.svg" alt="DarkMode+ Logo">
+                        <span>DarkMode+</span>
+                    </div>
+                    <p class="footer-description">A customizable dark mode Chrome extension that works on any website. Reduce eye strain and enjoy a better browsing experience with multiple themes and personalized settings.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0014.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"/></svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.599-.1-.899a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"/></svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z"/><circle cx="16.806" cy="7.207" r="1.078"/><path d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.951-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Features</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Universal Dark Mode</a></li>
+                        <li><a href="index.html#themes">Multiple Themes</a></li>
+                        <li><a href="index.html#features">Site Exclusions</a></li>
+                        <li><a href="index.html#theme-suggestions">Color Customization</a></li>
+                        <li><a href="index.html#benefits">Eye Strain Reduction</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html#contact">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="https://chrome.google.com/webstore" target="_blank">Chrome Web Store</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="subfooter">
+                <p>&copy; 2025 DarkMode+. All rights reserved.</p>
+                <div class="subfooter-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </div>
+    
+    <script>
+        // Back to top button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Active section highlighting
+        const sections = document.querySelectorAll('.docs-section');
+        const navLinks = document.querySelectorAll('.docs-nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
